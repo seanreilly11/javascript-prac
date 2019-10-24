@@ -1,0 +1,26 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+#output{
+	display: grid;
+	grid-template-columns: repeat(3, minmax(200px, 1fr));
+	grid-gap: 1rem;
+}
+
+.col-4{
+	background: #f3f3f3;
+	padding: 1rem;
+}
+
+.fa-check-circle{
+	color: var(--success);
+	font-size: 1rem;
+}
+
+.fa-times-circle{
+	color: var(--danger);
+	font-size: 1rem;
+}
