@@ -116,11 +116,12 @@ function printInfo(phone, i){
 	}
 	card += "<p>Screen Size: "+phones[i].screen+"in</p>";
 	if(phone[i].headphone === true){
-		card += "<p>Has Headphone Jack: <i class='fas fa-check-circle'></i></p></div></div>";
+		card += "<p>Has Headphone Jack: <i class='fas fa-check-circle'></i></p>";
 	}
 	else if(phone[i].headphone === false){
-		card += "<p>Has Headphone Jack: <i class='fas fa-times-circle'></i></p></div></div>";
+		card += "<p>Has Headphone Jack: <i class='fas fa-times-circle'></i></p>";
 	}
+	card += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#phoneModal">View Phone</button></div></div>';
 	document.getElementById("output").innerHTML += card;
 }
 

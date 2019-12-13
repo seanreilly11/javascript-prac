@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Learning JS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -91,12 +92,15 @@
 	<input type="submit" value="Sort array" id="sortItem">
 	<input type="submit" value="Print array" id="printItem"> -->
 	
-	<!-- <input type="submit" value="Print All Dogs" id="printDogs">
-	<input type="text" id="dogInput">
+	<!-- <input type="submit" value="Print All Dogs" id="printDogs"> -->
+	<!-- <input type="text" id="dogInput">
 	<input type="submit" value="Print This Dog" id="thisDog">
-	<input type="submit" value="Filter Dogs Height" id="filterDogHeight">
+	<div class="range-slider">
+		<input type="range" min="1" max="100" value="50" class="slider" id="height">
+		<div id="range-value">50</div>
+	</div>
 	<input type="submit" value="Filter Dogs Breed" id="filterDogBreed"> -->
-	<div class="container">
+	<!-- <div class="container">
 		<input type="submit" value="Print All Phones" id="printPhones" class="button"><br><br>
 		<select name="brand" id="brands" class="inputter">
 			<option value="Apple">Apple</option>
@@ -117,13 +121,35 @@
 		<input type="radio" name="r" id="false" class="inputter">
 		<label for="false">False</label>
 		<input type="submit" value="Filter Headphone Jack or not" id="filterJack" class="button" class="inputter">
-		
-		<div id="outputTop"></div> 
-		<div id="output"></div> 
-	</div>
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-	  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-	  crossorigin="anonymous"></script>
-	<script src="js/main.js"></script>
-</body>
-</html>
+	-->
+		<!-- <div id="outputTop"></div> 
+			<div id="output"></div> --> 
+
+			<!-- map api -->
+			<h1 class="jumbotron">Google Map API</h1>
+			<div class="text-center">
+				<button type="button" class="btn btn-lg btn-primary" id="homeBtn">Home</button>
+				<button type="button" class="btn btn-lg btn-primary" id="mapBtn">Map</button>
+			</div>
+			<div class="map-container col-12 my-5">
+				<div class="col-12" id="map">Map</div>
+			</div>
+
+			<!-- my modal -->
+		<!-- <div class="myModal-outer">
+			<div class="myModal">
+				<div class="closeBar bg-primary text-light ">&times</div>
+				<div id="myModal-info"></div>
+			</div>
+		</div> -->
+		<!-- </div> -->
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="js/config.json"></script>
+		<script src="js/main.js"></script>
+		<!-- <script src="https://maps.googleapis.com/maps/api/js?key=KEY&callback=initMap"async defer></script> -->
+	</body>
+	</html>

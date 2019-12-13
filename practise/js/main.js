@@ -471,51 +471,67 @@ var dogs = [
 }
 ];
 
-// document.getElementById("printDogs").addEventListener("click", function(){
+
+// function printDogs(dogs, i){
+// 	var card = "";
+// 	card += "<div class='card'><h1 class='dogName'>"+dogs[i].name+"</h1>";
+// 	card += "<p>"+dogs[i].breed+"</p>";
+// 	card += "<img src="+dogs[i].photo+" class='myDogs' id='"+dogs[i].name+"'>";
+// 	document.getElementById("output").innerHTML += card;
+// }
+
+// function printDogsInfo(dogs, i){
+// 	var dog = "";
+// 	dog += "<div><h1>"+dogs[i].name+"</h1>";
+// 	dog += "<p>ID: "+dogs[i].id+"</p>";
+// 	dog += "<p>Breed : "+dogs[i].breed+"</p>";
+// 	dog += "<p>Color: "+dogs[i].color+"</p>";
+// 	dog += "<p>Height: "+dogs[i].height+"cm</p>";
+// 	dog += "<p>Age: "+dogs[i].age+" years old</p></div>";
+// 	dog += "<img src="+dogs[i].photo+" class='myDogs' id='"+dogs[i].name+"'><br>";
+// 	document.getElementById("myModal-info").innerHTML += dog;
+// }
+
+// function clearScreen(){
+// 	document.getElementById("myModal-info").innerHTML = "";
+// 	// document.getElementById("output").innerHTML += "";
+// }
+// // document.getElementById("printDogs").addEventListener("click", function(){
 // 	for(let i = 0; i<dogs.length; i++){
-// 		document.getElementById("output").innerHTML += "<br><h1>"+dogs[i].name+"</h1>";
-// 		document.getElementById("output").innerHTML += "<br><p>ID: "+dogs[i].id+"</p>";
-// 		document.getElementById("output").innerHTML += "<br><p>Breed : "+dogs[i].breed+"</p>";
-// 		document.getElementById("output").innerHTML += "<br><p>Color: "+dogs[i].color+"</p>";
-// 		document.getElementById("output").innerHTML += "<br><p>Height: "+dogs[i].height+"</p>";
-// 		document.getElementById("output").innerHTML += "<br><p>Age: "+dogs[i].age+"</p>";
-// 		document.getElementById("output").innerHTML += "<br><img src="+dogs[i].photo+">";
+// 		printDogs(dogs, i);	
 // 	}
-// });
+// // });
 
 // document.getElementById("thisDog").addEventListener("click", function(){
 // 	var dog = document.getElementById("dogInput").value;
+// 	document.getElementById("output").innerHTML = "";
+
 // 	for(let i = 0; i<dogs.length; i++){
 // 		if(dogs[i].name.toLowerCase() === dog.toLowerCase()){
-// 			document.getElementById("output").innerHTML = "<br><h1>"+dogs[i].name+"</h1>";
-// 			document.getElementById("output").innerHTML += "<br><p>ID: "+dogs[i].id+"</p>";
-// 			document.getElementById("output").innerHTML += "<br><p>Breed : "+dogs[i].breed+"</p>";
-// 			document.getElementById("output").innerHTML += "<br><p>Color: "+dogs[i].color+"</p>";
-// 			document.getElementById("output").innerHTML += "<br><p>Height: "+dogs[i].height+"</p>";
-// 			document.getElementById("output").innerHTML += "<br><p>Age: "+dogs[i].age+"</p>";
-// 			document.getElementById("output").innerHTML += "<br><img src="+dogs[i].photo+">";
+// 			printDogs(dogs, i);	
 // 		}
 // 	}
 // });
 
 
-// document.getElementById("filterDogHeight").addEventListener("click", function(){
+// document.getElementById("height").addEventListener("change", function(){
 // 	document.getElementById("output").innerHTML = "";
-// 	var filter = parseInt(document.getElementById("dogInput").value);
+// 	var filter = parseInt(document.getElementById("height").value);
 // 	if(!isNaN(filter)){
 // 		for(let i = 0; i<dogs.length; i++){
 // 			if(dogs[i].height >= filter){
-// 				document.getElementById("output").innerHTML += "<br><h1>"+dogs[i].name+"</h1>";
-// 				document.getElementById("output").innerHTML += "<br><p>ID: "+dogs[i].id+"</p>";
-// 				document.getElementById("output").innerHTML += "<br><p>Breed : "+dogs[i].breed+"</p>";
-// 				document.getElementById("output").innerHTML += "<br><p>Color: "+dogs[i].color+"</p>";
-// 				document.getElementById("output").innerHTML += "<br><p>Height: "+dogs[i].height+"</p>";
-// 				document.getElementById("output").innerHTML += "<br><p>Age: "+dogs[i].age+"</p>";
-// 				document.getElementById("output").innerHTML += "<br><img src="+dogs[i].photo+">";
+// 				printDogs(dogs, i);	
 // 			}
 // 		}
 // 	}
 // });
+
+// document.getElementById("height").addEventListener("input", function(){
+// 	document.getElementById("output").innerHTML = "";
+// 	var curr = parseInt(document.getElementById("height").value);
+// 	document.getElementById("range-value").innerHTML = curr;
+// });
+
 
 
 // // bull dog
@@ -524,22 +540,385 @@ var dogs = [
 // 	var breed = document.getElementById("dogInput").value;
 // 	for(let i = 0; i<dogs.length; i++){
 // 		if(dogs[i].breed.indexOf(breed) > (-1)){
-// 			document.getElementById("output").innerHTML += "<br><h1>"+dogs[i].name+"</h1>";
-// 			document.getElementById("output").innerHTML += "<br><p>ID: "+dogs[i].id+"</p>";
-// 			document.getElementById("output").innerHTML += "<br><p>Breed : "+dogs[i].breed+"</p>";
-// 			document.getElementById("output").innerHTML += "<br><p>Color: "+dogs[i].color+"</p>";
-// 			document.getElementById("output").innerHTML += "<br><p>Height: "+dogs[i].height+"</p>";
-// 			document.getElementById("output").innerHTML += "<br><p>Age: "+dogs[i].age+"</p>";
-// 			document.getElementById("output").innerHTML += "<br><img src="+dogs[i].photo+">";
+// 			printDogs(dogs, i);	
 // 		}
 // 	}
+// });
 
+// $(".myDogs").click(function(){
+// 	$(".myModal-outer").show();
+// 	var id = this.id;
+// 	var index = dogs.findIndex(x => x.name === id);
+// 	clearScreen();
+// 	printDogsInfo(dogs, index);
+// });
+
+// $(".closeBar").click(function(){
+// 	$(".myModal-outer").hide();
 // });
 
 
+// map api
+
+// $("#homeBtn").click(function(){
+// 	$(".map-container").hide();
+// 	$(".home-container").show();
+// });
+
+// access api key from config.json
+var myKey = JSON.parse(apiKey);
+var theKey = myKey[0].key;
+var script = document.createElement('script');
+script.src='https://maps.googleapis.com/maps/api/js?key='+ theKey + '&callback=initMap';
+document.getElementsByTagName('body')[0].appendChild(script);
 
 
+$(".map-container").show();
+initMap();
 
+var map;
+function initMap() {
+	var styledMapType = new google.maps.StyledMapType(
+	[
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#1d2c4d"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#8ec3b9"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#1a3646"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.country",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#4b6878"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#64779e"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.province",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#4b6878"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.man_made",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#334e87"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.natural",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#023e58"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#283d6a"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#6f9ba5"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#1d2c4d"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#023e58"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#3C7680"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#304a7d"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#98a5be"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#1d2c4d"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#2c6675"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#255763"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#b0d5ce"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#023e58"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#98a5be"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#1d2c4d"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#283d6a"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#3a4762"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#0e1626"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#cfffd9"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#4e6d70"
+      }
+    ]
+  }
+],
+{name: 'Styled Map'});
+	var coords = {lat: -41.2867, lng: 174.7730}
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: coords,
+		zoom: 12,
+		mapTypeControlOptions: {
+            mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+                    'styled_map']
+          }
+	});
+
+	map.mapTypes.set('styled_map', styledMapType);
+    map.setMapTypeId('styled_map');
+
+    var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Wellington</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+      'sandstone rock formation in the southern part of the '+
+      'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+      'south west of the nearest large town, Alice Springs; 450&#160;km '+
+      '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+      'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+      'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+      'Aboriginal people of the area. It has many springs, waterholes, '+
+      'rock caves and ancient paintings. Uluru is listed as a World '+
+      'Heritage Site.</p>'+
+      '</div>'+
+      '</div>';
+
+	var infowindow = new google.maps.InfoWindow({
+	  content: contentString
+	});
+
+	var marker = new google.maps.Marker({
+    position: coords,
+    map: map,
+    title: 'Hello World!'
+  });
+	marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+}
 
 
 
